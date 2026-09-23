@@ -294,12 +294,6 @@
         "protocol": "quic"
       },
       {
-        "action": "reject",
-        "rule_set": [
-          "Category-Ads"
-        ]
-      },
-      {
         "action": "route",
         "clash_mode": "direct",
         "outbound": "🎯 全球直连"
@@ -619,15 +613,6 @@
         "tag": "Google",
         "type": "remote",
         "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/refs/heads/rule-set/geosite-google.srs",
-        "format": "binary",
-        "http_client": {
-          "detour": "🚀 节点选择"
-        }
-      },
-      {
-        "tag": "Category-Ads",
-        "type": "remote",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs",
         "format": "binary",
         "http_client": {
           "detour": "🚀 节点选择"
