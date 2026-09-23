@@ -185,46 +185,31 @@
         "tag": "GeoIP-Private",
         "type": "remote",
         "url": "https://testingcf.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/privateip.srs",
-        "format": "binary",
-        "http_client": {
-          "detour": "🎯 全球直连"
-        }
+        "format": "binary"
       },
       {
         "tag": "GeoSite-Private",
         "type": "remote",
         "url": "https://testingcf.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/private.srs",
-        "format": "binary",
-        "http_client": {
-          "detour": "🎯 全球直连"
-        }
+        "format": "binary"
       },
       {
         "tag": "GeoIP-CN",
         "type": "remote",
         "url": "https://testingcf.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/cnip.srs",
-        "format": "binary",
-        "http_client": {
-          "detour": "🎯 全球直连"
-        }
+        "format": "binary"
       },
       {
         "tag": "GeoSite-CN",
         "type": "remote",
         "url": "https://testingcf.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/cn.srs",
-        "format": "binary",
-        "http_client": {
-          "detour": "🎯 全球直连"
-        }
+        "format": "binary"
       },
       {
         "tag": "GeoLocation-!CN",
         "type": "remote",
         "url": "https://testingcf.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/proxy.srs",
-        "format": "binary",
-        "http_client": {
-          "detour": "🎯 全球直连"
-        }
+        "format": "binary"
       }
     ],
     "auto_detect_interface": true,
