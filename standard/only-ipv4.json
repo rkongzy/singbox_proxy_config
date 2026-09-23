@@ -130,20 +130,6 @@
     },
     {
       "type": "selector",
-      "tag": "🎥 bilibili",
-      "interrupt_exist_connections": true,
-      "outbounds": [
-        "🚀 节点选择",
-        "🇭🇰 香港",
-        "🇹🇼 台湾",
-        "🇸🇬 新加坡",
-        "🇯🇵 日本",
-        "🇺🇸 美国",
-        "🎯 全球直连"
-      ]
-    },
-    {
-      "type": "selector",
       "tag": "🎬 TikTok",
       "interrupt_exist_connections": true,
       "outbounds": [
@@ -342,16 +328,6 @@
       {
         "action": "route",
         "rule_set": [
-          "bilibili",
-          "bilibili@!cn",
-          "bilibili-cdn",
-          "bilibili-game"
-        ],
-        "outbound": "🎥 bilibili"
-      },
-      {
-        "action": "route",
-        "rule_set": [
           "Disney"
         ],
         "outbound": "📹 Disney+"
@@ -518,42 +494,6 @@
         "tag": "Disney",
         "type": "remote",
         "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/refs/heads/rule-set/geosite-disney.srs",
-        "format": "binary",
-        "http_client": {
-          "detour": "🚀 节点选择"
-        }
-      },
-      {
-        "tag": "bilibili",
-        "type": "remote",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/bilibili.srs",
-        "format": "binary",
-        "http_client": {
-          "detour": "🚀 节点选择"
-        }
-      },
-      {
-        "tag": "bilibili@!cn",
-        "type": "remote",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/bilibili@!cn.srs",
-        "format": "binary",
-        "http_client": {
-          "detour": "🚀 节点选择"
-        }
-      },
-      {
-        "tag": "bilibili-cdn",
-        "type": "remote",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/bilibili-cdn.srs",
-        "format": "binary",
-        "http_client": {
-          "detour": "🚀 节点选择"
-        }
-      },
-      {
-        "tag": "bilibili-game",
-        "type": "remote",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/bilibili-game.srs",
         "format": "binary",
         "http_client": {
           "detour": "🚀 节点选择"
