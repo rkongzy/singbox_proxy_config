@@ -42,6 +42,7 @@
         "🇹🇼 台湾",
         "🇸🇬 新加坡",
         "🇯🇵 日本",
+        "🇰🇷 韩国",
         "🇺🇸 美国"
       ]
     },
@@ -72,6 +73,12 @@
     {
       "type": "selector",
       "tag": "🇯🇵 日本",
+      "interrupt_exist_connections": true,
+      "outbounds": []
+    },
+    {
+      "type": "selector",
+      "tag": "🇰🇷 韩国",
       "interrupt_exist_connections": true,
       "outbounds": []
     },
