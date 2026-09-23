@@ -48,18 +48,6 @@
     },
     {
       "type": "selector",
-      "tag": "🔗 前置节点",
-      "interrupt_exist_connections": true,
-      "outbounds": [
-        "🇭🇰 香港",
-        "🇹🇼 台湾",
-        "🇸🇬 新加坡",
-        "🇯🇵 日本",
-        "🇺🇸 美国"
-      ]
-    },
-    {
-      "type": "selector",
       "tag": "🚀 落地节点",
       "interrupt_exist_connections": true,
       "outbounds": []
