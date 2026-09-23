@@ -4,6 +4,11 @@
     "level": "info",
     "timestamp": false
   },
+  "http_clients": [
+    {
+      "tag": "rule-set-http"
+    }
+  ],
   "experimental": {
     "clash_api": {
       "external_controller": "127.0.0.1:20123",
@@ -212,6 +217,7 @@
         "format": "binary"
       }
     ],
+    "default_http_client": "rule-set-http",
     "auto_detect_interface": true,
     "final": "🚀 落地节点",
     "default_domain_resolver": {
