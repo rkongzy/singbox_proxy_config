@@ -49,7 +49,7 @@
   "outbounds": [
     {
       "type": "selector",
-      "tag": "🚀 节点选择",
+      "tag": "🚀 落地节点",
       "interrupt_exist_connections": true,
       "outbounds": []
     },
@@ -89,21 +89,11 @@
     },
     {
       "type": "selector",
-      "tag": "🐟 漏网之鱼",
-      "interrupt_exist_connections": true,
-      "outbounds": [
-        "🚀 节点选择",
-        "🎯 全球直连"
-      ]
-    },
-    {
-      "type": "selector",
       "tag": "GLOBAL",
       "interrupt_exist_connections": true,
       "outbounds": [
-        "🚀 节点选择",
-        "🎯 全球直连",
-        "🐟 漏网之鱼"
+        "🚀 落地节点",
+        "🎯 全球直连"
       ]
     }
   ],
@@ -185,7 +175,7 @@
         "rule_set": [
           "GeoLocation-!CN"
         ],
-        "outbound": "🐟 漏网之鱼"
+        "outbound": "🚀 落地节点"
       }
     ],
     "rule_set": [
@@ -195,7 +185,7 @@
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-cn.srs",
         "format": "binary",
         "http_client": {
-          "detour": "🚀 节点选择"
+          "detour": "🚀 落地节点"
         }
       },
       {
@@ -204,7 +194,7 @@
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/private.srs",
         "format": "binary",
         "http_client": {
-          "detour": "🚀 节点选择"
+          "detour": "🚀 落地节点"
         }
       },
       {
@@ -213,7 +203,7 @@
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs",
         "format": "binary",
         "http_client": {
-          "detour": "🚀 节点选择"
+          "detour": "🚀 落地节点"
         }
       },
       {
@@ -222,7 +212,7 @@
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cn.srs",
         "format": "binary",
         "http_client": {
-          "detour": "🚀 节点选择"
+          "detour": "🚀 落地节点"
         }
       },
       {
@@ -231,7 +221,7 @@
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs",
         "format": "binary",
         "http_client": {
-          "detour": "🚀 节点选择"
+          "detour": "🚀 落地节点"
         }
       },
       {
@@ -240,12 +230,12 @@
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs",
         "format": "binary",
         "http_client": {
-          "detour": "🚀 节点选择"
+          "detour": "🚀 落地节点"
         }
       }
     ],
     "auto_detect_interface": true,
-    "final": "🐟 漏网之鱼",
+    "final": "🚀 落地节点",
     "default_domain_resolver": {
       "server": "Local-DNS"
     }
@@ -261,7 +251,7 @@
       {
         "tag": "Remote-DNS",
         "type": "tls",
-        "detour": "🚀 节点选择",
+        "detour": "🚀 落地节点",
         "server_port": 853,
         "server": "8.8.8.8"
       },
