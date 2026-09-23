@@ -88,21 +88,11 @@
     },
     {
       "type": "selector",
-      "tag": "🐟 漏网之鱼",
-      "interrupt_exist_connections": true,
-      "outbounds": [
-        "🚀 节点选择",
-        "🎯 全球直连"
-      ]
-    },
-    {
-      "type": "selector",
       "tag": "GLOBAL",
       "interrupt_exist_connections": true,
       "outbounds": [
-        "🚀 节点选择",
-        "🎯 全球直连",
-        "🐟 漏网之鱼"
+        "🚀 落地节点",
+        "🎯 全球直连"
       ]
     }
   ],
@@ -173,7 +163,7 @@
         "rule_set": [
           "GeoLocation-!CN"
         ],
-        "outbound": "🐟 漏网之鱼"
+        "outbound": "🚀 落地节点"
       }
     ],
     "rule_set": [
@@ -233,7 +223,7 @@
       }
     ],
     "auto_detect_interface": true,
-    "final": "🐟 漏网之鱼",
+    "final": "🚀 落地节点",
     "default_domain_resolver": {
       "server": "Local-DNS"
     }
