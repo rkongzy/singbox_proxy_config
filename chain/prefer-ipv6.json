@@ -244,9 +244,7 @@
     "servers": [
       {
         "tag": "Local-DNS",
-        "type": "tls",
-        "server_port": 853,
-        "server": "223.5.5.5"
+        "type": "local"
       },
       {
         "tag": "Remote-DNS",
@@ -294,7 +292,7 @@
         "action": "respond"
       }
     ],
-    "final": "Local-DNS",
+    "final": "Remote-DNS",
     "reverse_mapping": true,
     "strategy": "prefer_ipv6"
   },
