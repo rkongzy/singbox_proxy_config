@@ -4,6 +4,11 @@
     "level": "info",
     "timestamp": false
   },
+  "http_clients": [
+    {
+      "tag": "rule-set-http"
+    }
+  ],
   "experimental": {
     "cache_file": {
       "enabled": true,
@@ -185,6 +190,7 @@
         "format": "binary"
       }
     ],
+    "default_http_client": "rule-set-http",
     "auto_detect_interface": true,
     "final": "🚀 节点选择",
     "default_domain_resolver": {
