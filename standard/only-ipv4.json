@@ -1,1 +1,10 @@
-LOADING_FROM_DISK
+{
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "timestamp": false
+  },
+  "dns": {
+    "strategy": "ipv4_only"
+  }
+}
