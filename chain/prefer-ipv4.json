@@ -142,13 +142,6 @@
       {
         "action": "route",
         "rule_set": [
-          "GeoLocation-CN"
-        ],
-        "outbound": "🎯 全球直连"
-      },
-      {
-        "action": "route",
-        "rule_set": [
           "GeoSite-CN"
         ],
         "outbound": "🎯 全球直连"
@@ -170,57 +163,48 @@
     ],
     "rule_set": [
       {
-        "tag": "GeoLocation-CN",
-        "type": "remote",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-cn.srs",
-        "format": "binary",
-        "http_client": {
-          "detour": "🚀 落地节点"
-        }
-      },
-      {
         "tag": "GeoIP-Private",
         "type": "remote",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/private.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/privateip.srs",
         "format": "binary",
         "http_client": {
-          "detour": "🚀 落地节点"
+          "detour": "🎯 全球直连"
         }
       },
       {
         "tag": "GeoSite-Private",
         "type": "remote",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/private.srs",
         "format": "binary",
         "http_client": {
-          "detour": "🚀 落地节点"
+          "detour": "🎯 全球直连"
         }
       },
       {
         "tag": "GeoIP-CN",
         "type": "remote",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cn.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/cnip.srs",
         "format": "binary",
         "http_client": {
-          "detour": "🚀 落地节点"
+          "detour": "🎯 全球直连"
         }
       },
       {
         "tag": "GeoSite-CN",
         "type": "remote",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/cn.srs",
         "format": "binary",
         "http_client": {
-          "detour": "🚀 落地节点"
+          "detour": "🎯 全球直连"
         }
       },
       {
         "tag": "GeoLocation-!CN",
         "type": "remote",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/proxy.srs",
         "format": "binary",
         "http_client": {
-          "detour": "🚀 落地节点"
+          "detour": "🎯 全球直连"
         }
       }
     ],
@@ -260,13 +244,6 @@
       {
         "action": "route",
         "rule_set": [
-          "GeoLocation-CN"
-        ],
-        "server": "Local-DNS"
-      },
-      {
-        "action": "route",
-        "rule_set": [
           "GeoSite-CN"
         ],
         "server": "Local-DNS"
@@ -280,7 +257,7 @@
       },
       {
         "action": "evaluate",
-        "server": "Remote-DNS"
+        "server": "Local-DNS"
       },
       {
         "match_response": true,
@@ -293,13 +270,9 @@
           "GeoIP-CN"
         ],
         "action": "respond"
-      },
-      {
-        "action": "route",
-        "server": "Remote-DNS"
       }
     ],
-    "final": "Remote-DNS",
+    "final": "Local-DNS",
     "reverse_mapping": true,
     "strategy": "prefer_ipv4"
   },
