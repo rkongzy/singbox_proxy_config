@@ -25,7 +25,7 @@
   "outbounds": [
     {
       "type": "selector",
-      "tag": "🚀 落地节点",
+      "tag": "🚀 节点选择",
       "interrupt_exist_connections": true,
       "outbounds": []
     },
@@ -68,7 +68,7 @@
       "tag": "GLOBAL",
       "interrupt_exist_connections": true,
       "outbounds": [
-        "🚀 落地节点",
+        "🚀 节点选择",
         "🎯 全球直连"
       ]
     }
@@ -139,7 +139,7 @@
         "rule_set": [
           "GeoLocation-!CN"
         ],
-        "outbound": "🚀 落地节点"
+        "outbound": "🚀 节点选择"
       }
     ],
     "rule_set": [
@@ -149,7 +149,7 @@
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-cn.srs",
         "format": "binary",
         "http_client": {
-          "detour": "🚀 落地节点"
+          "detour": "🚀 节点选择"
         }
       },
       {
@@ -158,7 +158,7 @@
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/private.srs",
         "format": "binary",
         "http_client": {
-          "detour": "🚀 落地节点"
+          "detour": "🚀 节点选择"
         }
       },
       {
@@ -167,7 +167,7 @@
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs",
         "format": "binary",
         "http_client": {
-          "detour": "🚀 落地节点"
+          "detour": "🚀 节点选择"
         }
       },
       {
@@ -176,7 +176,7 @@
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cn.srs",
         "format": "binary",
         "http_client": {
-          "detour": "🚀 落地节点"
+          "detour": "🚀 节点选择"
         }
       },
       {
@@ -185,7 +185,7 @@
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs",
         "format": "binary",
         "http_client": {
-          "detour": "🚀 落地节点"
+          "detour": "🚀 节点选择"
         }
       },
       {
@@ -194,12 +194,12 @@
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs",
         "format": "binary",
         "http_client": {
-          "detour": "🚀 落地节点"
+          "detour": "🚀 节点选择"
         }
       }
     ],
     "auto_detect_interface": true,
-    "final": "🚀 落地节点",
+    "final": "🚀 节点选择",
     "default_domain_resolver": {
       "server": "Local-DNS"
     }
@@ -215,7 +215,7 @@
       {
         "tag": "Remote-DNS",
         "type": "tls",
-        "detour": "🚀 落地节点",
+        "detour": "🚀 节点选择",
         "server_port": 853,
         "server": "8.8.8.8"
       }
