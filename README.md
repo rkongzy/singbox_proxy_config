@@ -34,7 +34,7 @@ chain/
 ```
 
 - `standard`：普通代理模板，没有机场前置节点
-- `chain`：链式代理模板，通过“机场节点 → 落地节点”连接
+- `chain`：链式代理模板，通过“前置节点（地区节点）→ 落地节点”连接（前置节点含香港/台湾/新加坡/日本/美国地区组，作落地 dialer 前跳）
 - `only-ipv4`：DNS 仅使用 IPv4，拒绝 AAAA 查询，TUN 仅保留 IPv4 地址
 - `prefer-ipv4`：DNS 优先使用 IPv4
 - `prefer-ipv6`：DNS 优先使用 IPv6
