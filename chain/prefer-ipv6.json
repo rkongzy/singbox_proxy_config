@@ -45,7 +45,8 @@
         "🇸🇬 新加坡",
         "🇯🇵 日本",
         "🇰🇷 韩国",
-        "🇺🇸 美国"
+        "🇺🇸 美国",
+        "🌐 其他国家"
       ]
     },
     {
@@ -87,6 +88,12 @@
     {
       "type": "selector",
       "tag": "🇺🇸 美国",
+      "interrupt_exist_connections": true,
+      "outbounds": []
+    },
+    {
+      "type": "selector",
+      "tag": "🌐 其他国家",
       "interrupt_exist_connections": true,
       "outbounds": []
     },
