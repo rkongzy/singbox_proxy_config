@@ -53,6 +53,15 @@
     },
     {
       "type": "selector",
+      "tag": "🖥️ Tailscale",
+      "outbounds": [
+        "ts-ep",
+        "🎯 全球直连"
+      ],
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "selector",
       "tag": "🇭🇰 香港",
       "interrupt_exist_connections": true,
       "outbounds": []
@@ -92,15 +101,6 @@
       "tag": "🌐 其他国家",
       "interrupt_exist_connections": true,
       "outbounds": []
-    },
-    {
-      "type": "selector",
-      "tag": "🖥️ Tailscale",
-      "outbounds": [
-        "ts-ep",
-        "🎯 全球直连"
-      ],
-      "interrupt_exist_connections": true
     },
     {
       "type": "direct",
