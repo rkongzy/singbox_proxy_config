@@ -156,7 +156,7 @@
         "ip_cidr": [
           "192.168.50.0/24"
         ],
-        "outbound": "ts-ep"
+        "outbound": "🖥️ Tailscale"
       },
       {
         "action": "route",
