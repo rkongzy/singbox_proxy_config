@@ -296,7 +296,7 @@
     {
       "type": "tailscale",
       "tag": "ts-ep",
-      "state_directory": "tailscale",
+      "state_directory": "",
       "auth_key": "",
       "accept_routes": true,
       "ephemeral": false,
