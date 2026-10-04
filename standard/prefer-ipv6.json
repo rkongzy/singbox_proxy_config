@@ -283,7 +283,7 @@
       "state_directory": "tailscale",
       "auth_key": "__TAILSCALE_AUTH_KEY__",
       "accept_routes": true,
-      "ephemeral": true,
+      "ephemeral": false,
       "hostname": "sing-box",
       "domain_resolver": "Local-DNS",
       "detour": "🚀 节点选择"
