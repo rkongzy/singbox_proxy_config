@@ -321,8 +321,7 @@
       "accept_routes": true,
       "ephemeral": false,
       "hostname": "sing-box",
-      "domain_resolver": "Local-DNS",
-      "detour": "🚀 落地节点"
+      "domain_resolver": "Local-DNS"
     }
   ]
 }
