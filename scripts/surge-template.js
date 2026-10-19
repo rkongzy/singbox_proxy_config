@@ -6,7 +6,6 @@
 //   collection  机场节点所在的组合订阅名，和 subscription 二选一
 //   subscription 机场节点所在的单条订阅名
 //   landing     落地节点所在的单条订阅名，chain 模板必填
-//   auth_key    Tailscale 密钥，可选。不填时使用 Surge 的交互式登录
 //   url         这个文件自己的下载链接，可选。填了会写入 #!MANAGED-CONFIG，Surge 可以自动更新整份配置
 //   interval    自动更新间隔，单位秒，默认 86400
 //
@@ -14,7 +13,7 @@
 //   standard：#collection=组合订阅&url=文件下载链接
 //   chain：   #collection=组合订阅&landing=落地节点&url=文件下载链接
 
-const { collection, subscription, landing, auth_key, url, interval = '86400' } = $arguments
+const { collection, subscription, landing, url, interval = '86400' } = $arguments
 
 if (!collection && !subscription) throw new Error('缺少参数 collection 或 subscription')
 
@@ -51,9 +50,6 @@ const proxySection = /^\[Proxy\][^\S\r\n]*$/m
 if (!proxySection.test(content)) throw new Error('模板里没有 [Proxy] 段')
 content = content.replace(proxySection, () => `[Proxy]\n${proxyLines.join('\n')}`)
 
-if (auth_key) {
-  content = content.replace(/^interactive-login\s*=\s*true[^\S\r\n]*$/m, () => `auth-key = ${auth_key}`)
-}
 
 if (url) {
   content = `#!MANAGED-CONFIG ${url} interval=${interval} strict=false\n` + content
