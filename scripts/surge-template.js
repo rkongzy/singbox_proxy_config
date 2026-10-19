@@ -1,38 +1,59 @@
-// Sub-Store 文件脚本：把订阅节点写入 Surge 模板的 [Proxy] 段
-// 用法：在 Sub-Store 新建文件，来源选远程，填本仓库 surge 分支模板的 raw 链接，
-// 再添加脚本操作，填本脚本的 raw 链接并在后面加参数，例如：
-//   https://raw.githubusercontent.com/rkongzy/singbox_proxy_config/surge/scripts/surge-template.js#type=组合订阅&name=机场&url=文件的下载链接
+// Sub-Store 文件脚本：把订阅节点写入 Surge 模板
+// 用法：在 Sub-Store 新建文件，来源选远程，填 surge 分支里 standard 或 chain 模板的 raw 链接，
+// 再添加脚本操作，填本脚本的 raw 链接并在 # 后面加参数。
+//
 // 参数：
-//   name      订阅名或组合订阅名，必填
-//   type      填 组合订阅、collection 或 1 时按组合订阅处理，其余按单条订阅处理
-//   url       这个文件自己的下载链接，填了会在开头写入 #!MANAGED-CONFIG，Surge 可以自动更新整份配置
-//   interval  自动更新间隔，单位秒，默认 86400
+//   collection  机场节点所在的组合订阅名，和 subscription 二选一
+//   subscription 机场节点所在的单条订阅名
+//   landing     落地节点所在的单条订阅名，chain 模板必填
+//   auth_key    Tailscale 密钥，可选。不填时使用 Surge 的交互式登录
+//   url         这个文件自己的下载链接，可选。填了会写入 #!MANAGED-CONFIG，Surge 可以自动更新整份配置
+//   interval    自动更新间隔，单位秒，默认 86400
+//
+// 例子：
+//   standard：#collection=组合订阅&url=文件下载链接
+//   chain：   #collection=组合订阅&landing=落地节点&url=文件下载链接
 
-const { type = '', name, url, interval = '86400' } = $arguments
+const { collection, subscription, landing, auth_key, url, interval = '86400' } = $arguments
 
-if (!name) throw new Error('缺少参数 name')
+if (!collection && !subscription) throw new Error('缺少参数 collection 或 subscription')
 
-const isCollection = /^1$|col|组合/i.test(type)
+async function getNodes(type, name) {
+  const text = await produceArtifact({ type, name, platform: 'Surge' })
+  const lines = String(text || '')
+    .split('\n')
+    .map(l => l.trim())
+    .filter(l => l && !l.startsWith('#') && !l.startsWith('//') && l.includes('='))
+  if (lines.length === 0) throw new Error(`${name} 没有可用的 Surge 节点`)
+  const names = lines.map(l => l.slice(0, l.indexOf('=')).trim())
+  return { lines, names }
+}
 
-const proxies = await produceArtifact({
-  type: isCollection ? 'collection' : 'subscription',
-  name,
-  platform: 'Surge',
-})
-
-const lines = String(proxies || '')
-  .split('\n')
-  .map(l => l.trim())
-  .filter(l => l && !l.startsWith('#') && !l.startsWith('//'))
-
-if (lines.length === 0) throw new Error(`订阅 ${name} 没有可用的 Surge 节点`)
+const airport = collection
+  ? await getNodes('collection', collection)
+  : await getNodes('subscription', subscription)
 
 let content = $content.replace(/^#!MANAGED-CONFIG.*\r?\n?/m, '')
+let proxyLines = [...airport.lines]
+
+content = content.replace(/__AIRPORT_NODES__/g, () => airport.names.join(', '))
+
+if (content.includes('__LANDING_NODES__')) {
+  if (!landing) throw new Error('chain 模板需要参数 landing')
+  const land = await getNodes('subscription', landing)
+  const dup = land.names.filter(n => airport.names.includes(n))
+  if (dup.length) throw new Error(`落地节点和机场节点重名：${dup.join(', ')}`)
+  proxyLines = proxyLines.concat(land.lines)
+  content = content.replace(/__LANDING_NODES__/g, () => land.names.join(', '))
+}
 
 const proxySection = /^\[Proxy\][^\S\r\n]*$/m
 if (!proxySection.test(content)) throw new Error('模板里没有 [Proxy] 段')
+content = content.replace(proxySection, () => `[Proxy]\n${proxyLines.join('\n')}`)
 
-content = content.replace(proxySection, () => `[Proxy]\n${lines.join('\n')}`)
+if (auth_key) {
+  content = content.replace(/^interactive-login\s*=\s*true[^\S\r\n]*$/m, () => `auth-key = ${auth_key}`)
+}
 
 if (url) {
   content = `#!MANAGED-CONFIG ${url} interval=${interval} strict=false\n` + content
